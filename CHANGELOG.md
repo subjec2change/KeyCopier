@@ -1,3 +1,6 @@
+## 1.6
+* Added BEST SFIC 7-pin lock format support
+
 ## 1.5 
 * Added Suzuki SUZ18 key format support by @RIcePatrol
 
