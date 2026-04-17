@@ -416,6 +416,26 @@ const KeyFormat all_formats[] = {
      .macs = 5,
      .clearance = 3},
 
+    {.manufacturer = "Best (A2)",
+     .format_name = "SFIC 7-pin",
+     .stop = 2,
+     .format_link = "C3",
+     .first_pin_inch = 0.250,
+     .last_pin_inch = 1.144,
+     .pin_increment_inch = 0.149,
+     .pin_num = 7,
+     .pin_width_inch = 0.051,
+     .elbow_inch = 0.081, // this should be equal to first pin inch for tip
+     // stopped key line
+     .drill_angle = 90,
+     .uncut_depth_inch = 0.318,
+     .deepest_depth_inch = 0.206,
+     .depth_step_inch = 0.025,
+     .min_depth_ind = 0,
+     .max_depth_ind = 9,
+     .macs = 5,
+     .clearance = 3},
+
     {.manufacturer = "RV (FIC,GL,Bauer)",
      .format_name = "RV",
      .sides = 2,
