@@ -46,10 +46,24 @@ jobs:
         with:
           path: artifacts
 
+      - name: Prepare release files
+        run: |
+          mkdir -p release-files
+          # Copy and rename .fap files to avoid conflicts
+          for dir in artifacts/*/; do
+            if [ -f "$dir/key_copier.fap" ]; then
+              artifact_name=$(basename "$dir")
+              # Extract just the API version part (e.g., "f7-api-87.1-1.4.3" or "f7-api-87.1-c9ab2b68")
+              suffix=$(echo "$artifact_name" | sed 's/KeyCopier-//')
+              cp "$dir/key_copier.fap" "release-files/key_copier-${suffix}.fap"
+            fi
+          done
+          ls -la release-files/
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: artifacts/**/*.fap
+          files: release-files/*.fap
           generate_release_notes: true
           draft: false
           prerelease: false
